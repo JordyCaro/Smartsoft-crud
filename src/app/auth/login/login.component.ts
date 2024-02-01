@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { LoginService } from '../../services/login.service';
+
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loader: boolean = false;
 
-  // FormGroup para gestionar el formulario (inicializado directamente)
+  // FormGroup
   loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
@@ -18,19 +20,31 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    // private authService: AuthService,
+    private loginService: LoginService,
     private router: Router
   ) {}
 
   ngOnInit(): void {}
 
-  // Función para manejar el envío del formulario
+  // Envío del formulario
   submit() {
-    console.log('Submit button clicked');
     this.loader = true;
-    setTimeout(() => {
-      this.loader = false;
-      this.router.navigateByUrl('/home');
-    }, 2000);
+    const { email, password } = this.loginForm.value;
+    this.loginService.login(email, password).subscribe(
+      (success: boolean) => {
+        this.loader = false;
+        if (success) {
+          console.log('Exito');
+          this.router.navigateByUrl('/home');
+        } else {
+          console.error('Credenciales inválidas');
+        }
+      },
+      (error) => {
+        console.error('Error en el servicio de login', error);
+        this.loader = false;
+      }
+    );
   }
+  
 }

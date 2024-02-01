@@ -1,28 +1,44 @@
-/* footer.component.css */
-
 .footer {
-  background-color: #f8f9fa;
-  color: #6c757d;
-  padding: 10px 0;
-  text-align: center;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
+  background-color: #e9ecef; /* Color de fondo ligeramente más oscuro */
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Sombra para un efecto sutil */
 }
 
+/* Estilos del contenedor con diseño flex */
 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.social-icons a {
-  color: #6c757d;
-  margin-left: 10px;
-  font-size: 20px;
-  transition: color 0.3s ease;
+/* Estilos de los íconos sociales con diseño flex, espacio y alineación a la derecha */
+.social-icons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end; /* Alinea los íconos sociales a la derecha */
 }
 
-.social-icons a:hover {
-  color: #007bff;
+/* Estilos para las imágenes de los íconos sociales con ancho máximo y altura automática */
+.social-icons a img {
+  max-width: 20px;
+  height: auto;
+}
+
+/* Estilos responsivos para pantallas más pequeñas (hasta 768px) */
+@media (max-width: 768px) {
+  /* Ajusta la dirección flex a columna para pantallas más pequeñas */
+  .container {
+    flex-direction: column;
+  }
+
+  /* Centra los íconos sociales en pantallas más pequeñas y agrega margen superior */
+  .social-icons {
+    justify-content: center;
+    margin-top: 10px;
+  }
 }
