@@ -1,8 +1,8 @@
 <div class="container">
   <!-- Loader que se muestra mientras se realiza la autenticación -->
-  <!-- <app-loader *ngIf="loader"></app-loader> -->
+  <app-loader *ngIf="loader"></app-loader>
 
-  <!-- Logotipo -->
+  <!-- Logo -->
   <div class="col-md-4 mb-5">
     <div class="icon">
       <a href="">
@@ -11,7 +11,7 @@
     </div>
   </div>
 
-  <!-- Formulario de login -->
+  <!-- Formulario -->
   <div class="col-md-4 ">
 
     <form [formGroup]="loginForm" (ngSubmit)="submit()">

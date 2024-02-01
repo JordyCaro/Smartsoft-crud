@@ -1,0 +1,28 @@
+/* footer.component.css */
+
+.footer {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  padding: 10px 0;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.social-icons a {
+  color: #6c757d;
+  margin-left: 10px;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #007bff;
+}

@@ -27,11 +27,10 @@ export class LoginComponent implements OnInit {
   // Función para manejar el envío del formulario
   submit() {
     console.log('Submit button clicked');
-    this.router.navigateByUrl('/home');
-    // this.loader = true;
-    // setTimeout(() => {
-    //   this.loader = false;
-    //   this.router.navigateByUrl('/home');
-    // }, 2000);
+    this.loader = true;
+    setTimeout(() => {
+      this.loader = false;
+      this.router.navigateByUrl('/home');
+    }, 2000);
   }
 }

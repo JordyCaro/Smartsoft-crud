@@ -1,0 +1,63 @@
+/* header.component.css */
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #c5e572;
+  color: white;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  max-width: 250px;
+}
+
+.logo img {
+  max-width: 100%;
+}
+
+.nav {
+  display: flex;
+  margin-top: 10px;
+}
+
+.nav a {
+  color: #000a42;
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 8px 12px;
+  border-radius: 4px;
+  margin-right: 10px;
+  transition: color 0.3s ease; /* Añadimos una transición suave de color */
+}
+
+/* Cambiamos el color al pasar el cursor */
+.nav a:hover {
+  color: #424c83; /* Puedes cambiar este color según tus preferencias */
+}
+
+/* Estilo para hacer el menú de navegación responsivo */
+@media (max-width: 768px) {
+  .logo {
+    max-width: 200px;
+  }
+
+  .nav {
+    margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* .nav a {
+    margin: 10px 0;
+  } */
+}
