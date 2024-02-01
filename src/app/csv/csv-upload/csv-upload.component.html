@@ -1,0 +1,21 @@
+<!-- app/csv/csv-upload/csv-upload.component.html -->
+
+<app-header></app-header>
+
+<div class="container">
+  <div class="upload-container">
+    <h2>Analizar Archivo CSV</h2>
+    <input type="file" (change)="onFileChange($event)" />
+
+    <div *ngIf="data && data.length > 0" class="analysis-results">
+      <h3>Resultados del Análisis:</h3>
+      <!-- Mostrar los resultados del análisis aquí -->
+    </div>
+  </div>
+
+  <a *ngIf="!data" href="../../../assets/time_series_covid19_deaths_US.csv" download="sample.csv" class="download-link">
+    Descargar archivo de muestra
+  </a>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,42 @@
+/* app/csv/csv-upload/csv-upload.component.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.upload-container {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.upload-container h2 {
+  margin-bottom: 20px;
+}
+
+.upload-container input {
+  margin-bottom: 20px;
+}
+
+.analysis-results {
+  margin-top: 20px;
+}
+
+.download-link {
+  text-decoration: none;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.download-link:hover {
+  background-color: #0056b3;
+}
