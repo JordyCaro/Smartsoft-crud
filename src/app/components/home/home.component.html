@@ -1,14 +1,29 @@
 <app-header></app-header>
 
-
 <div class="wrapper">
   <!-- <app-sidebar></app-sidebar> -->
 
   <div class="main">
-    <!-- <app-content-area></app-content-area> -->
-    <p>a</p>
+    <div class="user-list">
+      <div class="user-card" *ngFor="let user of users">
+        <img class="user-avatar" [src]="user.avatar" alt="User Avatar" />
+        <div class="user-details">
+          <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+          <p>{{ user.email }}</p>
+        </div>
+        <div class="user-actions">
+          <button class="edit-button">Editar</button>
+          <button class="delete-button">Borrar</button>
+        </div>
+      </div>
+    </div>
+    <mat-paginator
+  [pageSize]="pageSize"
+  [pageSizeOptions]="pageSizeOptions"
+  [length]="totalUsers"
+  (page)="loadUsers($event.pageIndex)"
+></mat-paginator>
   </div>
 </div>
 
 <app-footer></app-footer>
-

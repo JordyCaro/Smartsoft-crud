@@ -113,6 +113,10 @@
 
   .result-statements-container,
   .result-table-container {
-    width: 100%; 
+    width: 100%;
+  }
+
+  .table-wrapper {
+    max-height: calc(20vh - 40px);
   }
 }
