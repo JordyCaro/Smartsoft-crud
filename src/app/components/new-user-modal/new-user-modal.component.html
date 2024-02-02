@@ -2,12 +2,15 @@
 <form [formGroup]="userForm">
   <mat-dialog-content>
     <mat-form-field>
-      <input matInput placeholder="Username" formControlName="username">
+      <input matInput placeholder="First name" formControlName="first_name">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Last name" formControlName="last_name">
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Email" formControlName="email">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field *ngIf="!isEditing">
       <input matInput type="password" placeholder="Password" formControlName="password">
     </mat-form-field>
   </mat-dialog-content>

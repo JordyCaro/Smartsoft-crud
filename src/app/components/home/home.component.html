@@ -12,20 +12,20 @@
           <p>{{ user.email }}</p>
         </div>
         <div class="user-actions">
-          <button class="edit-button">Editar</button>
-          <button class="delete-button">Borrar</button>
+          <button class="edit-button" (click)="openNewUserModal(user)">Editar</button>
+          <button class="delete-button" (click)="deleteUser(user.id)">Borrar</button>
         </div>
       </div>
-      <div class="user-card new-user-card" (click)="openNewUserModal()">
-        <p>Crear Nuevo Usuario</p>
-      </div>
     </div>
-    <mat-paginator
-  [pageSize]="pageSize"
-  [pageSizeOptions]="pageSizeOptions"
-  [length]="totalUsers"
-  (page)="loadUsers($event.pageIndex)"
-></mat-paginator>
+    <div class="footer-list">
+      <button mat-raised-button (click)="openNewUserModal()" color="primary">Crear Nuevo Usuario</button>
+      <mat-paginator
+        [pageSize]="pageSize"
+        [pageSizeOptions]="pageSizeOptions"
+        [length]="totalUsers"
+        (page)="loadUsers($event.pageIndex)"
+      ></mat-paginator>
+    </div>
   </div>
 </div>
 

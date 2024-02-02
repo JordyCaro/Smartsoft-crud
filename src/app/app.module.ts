@@ -23,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
-import { NewUserModalComponent } from './new-user-modal/new-user-modal.component';
+import { NewUserModalComponent } from './components/new-user-modal/new-user-modal.component';
+import { ConfirmationDialogComponent } from './components/comfirmation-dialog/confirmation-dialog.component';
 // import { CsvUploadComponent } from './csv/csv-upload/csv-upload.component';
 
 
@@ -34,6 +35,7 @@ import { NewUserModalComponent } from './new-user-modal/new-user-modal.component
     LoginComponent,
     HomeComponent,
     NewUserModalComponent,
+    ConfirmationDialogComponent
 
 
   ],

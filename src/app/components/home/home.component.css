@@ -88,3 +88,10 @@
   background-color: #289633;
   color: #fff;
 }
+
+.footer-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
