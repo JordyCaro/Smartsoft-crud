@@ -1,5 +1,3 @@
-// app/csv/csv-upload/csv-upload.component.ts
-
 import { Component } from '@angular/core';
 import { Papa, ParseResult } from 'ngx-papaparse';
 
@@ -20,7 +18,7 @@ export class CsvUploadComponent {
     const file = event?.target?.files?.[0];
 
     if (file) {
-      this.showUploadForm = false; // Oculta el formulario al cargar el archivo
+      this.showUploadForm = false;
       this.parseCsv(file);
     }
   }
@@ -37,7 +35,6 @@ export class CsvUploadComponent {
   }
 
   private analyzeData(): any[] {
-    // Agrupar resultados por Province_State y sumar los totales
     const groupedData = this.data.reduce((acc, result) => {
       const key = result.Province_State;
 
@@ -51,63 +48,59 @@ export class CsvUploadComponent {
       return acc;
     }, {});
 
-    // Crear un array con los resultados finales
-    const resultadosFinales = Object.keys(groupedData).map(estado => {
+    const finalResults = Object.keys(groupedData).map(state => {
       return {
-        estado,
-        ultimoResultado: {
-          '4/27/21': groupedData[estado].total
+        state,
+        lastResult: {
+          '4/27/21': groupedData[state].total
         },
-        results: groupedData[estado].results
+        results: groupedData[state].results
       };
     });
 
-    return resultadosFinales;
+    return finalResults;
   }
 
-  // Funciones adicionales para responder a las preguntas específicas
-
-  getEstadoConMayorAcumulado(): any {
-    let estadoMayorAcumulado = null;
-    let acumuladoMayor = -1;
+  getStateWithHighestTotal(): any {
+    let stateWithHighestTotal = null;
+    let accumulatedHigher = -1;
 
     this.analyzedData.forEach(result => {
-      const acumulado = +result.ultimoResultado?.['4/27/21'] || 0;
+      const total = +result.lastResult?.['4/27/21'] || 0;
 
-      if (acumulado > acumuladoMayor && acumulado > 0) {
-        acumuladoMayor = acumulado;
-        estadoMayorAcumulado = result.estado;
+      if (total > accumulatedHigher) {
+        accumulatedHigher = total;
+        stateWithHighestTotal = result.state;
       }
     });
 
-    return estadoMayorAcumulado;
+    return { state: stateWithHighestTotal, total: accumulatedHigher };
   }
 
-  // Función para obtener el estado con el menor acumulado
-  getEstadoConMenorAcumulado(): any {
-    let estadoMenorAcumulado = null;
-    let acumuladoMenor = Number.MAX_VALUE;
+  getStateWithLeastCumulative(): any {
+    let stateWithLeastCumulative = null;
+    let lowestTotal = Number.MAX_VALUE;
 
     this.analyzedData.forEach(result => {
-      const acumulado = +result.ultimoResultado?.['4/27/21'] || 0;
+      const total = +result.lastResult?.['4/27/21'] || 0;
 
-      if (acumulado < acumuladoMenor && acumulado > 0) {
-        acumuladoMenor = acumulado;
-        estadoMenorAcumulado = result.estado;
+      if (total < lowestTotal && total > 0) {
+        lowestTotal = total;
+        stateWithLeastCumulative = result.state;
       }
     });
 
-    return estadoMenorAcumulado;
+    return stateWithLeastCumulative;
   }
 
   // Función para preparar datos para la gráfica
   prepareChartData(): { chartData: number[]; chartLabels: string[] } {
     const chartData = this.analyzedData.map(result => {
-      const acumulado = +result.ultimoResultado?.['4/27/21'] || 0;
-      return acumulado;
+      const total = +result.lastResult?.['4/27/21'] || 0;
+      return total;
     });
 
-    const chartLabels = this.analyzedData.map(result => result.estado);
+    const chartLabels = this.analyzedData.map(result => result.state);
 
     return { chartData, chartLabels };
   }

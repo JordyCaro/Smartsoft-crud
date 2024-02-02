@@ -6,6 +6,9 @@
   <div *ngIf="showUploadForm" class="upload-container">
     <h2>Analizar Archivo CSV</h2>
     <input type="file" (change)="onFileChange($event)" />
+    <a  href="../../../assets/time_series_covid19_deaths_US.csv" download="sample.csv" >
+      Descargar archivo de muestra
+    </a>
   </div>
 
   <div *ngIf="data && data.length > 0" class="analysis-results">
@@ -16,37 +19,30 @@
           <table class="result-table">
             <thead>
               <tr>
-                <th>Ciudad</th>
-                <th>Cantidad de Muertos</th>
-                <!-- Agrega más columnas según sea necesario -->
+                <th>Estado</th>
+                <th>Cantidad de Fallecidos</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let result of analyzedData">
                 <td>{{ result.estado }}</td>
                 <td>{{ result.ultimoResultado['4/27/21'] || 'N/A' }}</td>
-                <!-- Agrega más celdas según sea necesario -->
               </tr>
             </tbody>
           </table>
         </div>
       </div>
 
-      <div class="result-statements-container">
-        <div class="result-statements">
-          <h3>Estadísticas Generales:</h3>
-          <p>Estado con mayor acumulado a la fecha: {{ getEstadoConMayorAcumulado() || 'N/A' }}</p>
-          <p>Estado con menor acumulado a la fecha: {{ getEstadoConMenorAcumulado() || 'N/A' }}</p>
-          <!-- <p>El estado más afectado: {{ getEstadoMasAfectado() || 'N/A' }}</p> -->
-       
+      <div class="result-statements">
+        <h3>Estadísticas Generales:</h3>
+        <p>Estado con mayor acumulado a la fecha: <strong>{{ getStateWithHighestTotal() || 'N/A' }}</strong></p>
+        <p>Estado con menor acumulado a la fecha: <strong>{{ getStateWithLeastCumulative() || 'N/A' }}</strong></p>
+        <p>El estado más afectado: <strong>{{ getStateWithHighestTotal()?.estado || 'N/A' }}</strong> - Con: <strong>{{ getStateWithHighestTotal()?.acumulado || 'N/A' }} </strong>personas fallecidas</p>
+
+      </div>
+
         </div>
       </div>
     </div>
-  </div>
-
-  <a *ngIf="!data && !showUploadForm" href="../../../assets/time_series_covid19_deaths_US.csv" download="sample.csv" class="download-link">
-    Descargar archivo de muestra
-  </a>
-</div>
 
 <app-footer></app-footer>
