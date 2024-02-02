@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ApiService } from 'src/app/services/api.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { NewUserModalComponent } from '../../new-user-modal/new-user-modal.component';
+
 
 @Component({
   selector: 'app-home',
@@ -22,6 +25,7 @@ export class HomeComponent implements OnInit{
   constructor(
     private router: Router,
     private apiService: ApiService,
+    public dialog: MatDialog,
   ) {}
 
   ngOnInit(): void {
@@ -29,18 +33,32 @@ export class HomeComponent implements OnInit{
   }
 
   loadUsers(page: number = 0) {
-    const query = `?page=${page + 1}&per_page=${this.pageSize}`; 
+    const query = `?page=${page + 1}&per_page=${this.pageSize}`;
+    this.loader = true;
     this.apiService.getUsers(query).subscribe(
       (data) => {
         console.log(data);
         this.users = data.data;
         this.totalUsers = data.total;
         this.paginator.length = this.totalUsers;
+        this.loader = false;
       },
       (error) => {
-        console.error(error);
+        this.loader = false;
       }
     );
+  }
+  openNewUserModal(): void {
+    const dialogRef = this.dialog.open(NewUserModalComponent, {
+      width: '400px', // Ajusta el ancho según tus necesidades
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // Maneja el nuevo usuario creado
+        console.log('Nuevo Usuario:', result);
+      }
+    });
   }
   }
 

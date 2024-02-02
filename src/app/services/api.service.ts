@@ -17,4 +17,11 @@ export class ApiService {
     return this.httpClient.get(`${this.apiUrl}users/${query}`);
   }
 
+  public postUser(data: any): Observable<any> {
+    return this.httpClient.post(
+      `${this.apiUrl}register/`,
+      data,
+    );
+  }
+
 }

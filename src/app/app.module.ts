@@ -14,12 +14,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { NgChartsModule } from 'ng2-charts';
+import { NewUserModalComponent } from './new-user-modal/new-user-modal.component';
 // import { CsvUploadComponent } from './csv/csv-upload/csv-upload.component';
 
 
@@ -29,6 +31,7 @@ import { NgChartsModule } from 'ng2-charts';
     AppComponent,
     LoginComponent,
     HomeComponent,
+    NewUserModalComponent,
 
 
   ],
@@ -51,6 +54,7 @@ import { NgChartsModule } from 'ng2-charts';
     MatToolbarModule,
     MatIconModule,
     MatPaginatorModule,
+    MatDialogModule,
 
   ],
   providers: [],

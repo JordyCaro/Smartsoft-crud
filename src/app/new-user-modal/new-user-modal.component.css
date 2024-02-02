@@ -1,0 +1,44 @@
+.title {
+  background-color: #4CAF50;
+}
+
+mat-dialog-title,
+mat-dialog-content,
+mat-dialog-actions {
+  background-color: #4CAF50;
+  color: #2196F3;
+}
+
+mat-dialog-title {
+  padding: 16px;
+  background-color: #4CAF50;
+}
+
+mat-dialog-content {
+  padding: 16px;
+}
+
+mat-dialog-actions {
+  padding: 8px 16px;
+  justify-content: space-between;
+}
+
+/* Estilo para los botones */
+.mat-dialog-actions button {
+  margin: 0;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.cancel-button {
+  background-color: #e74c3c;
+  color: #fff;
+  margin-right: 8px;
+}
+
+.create-button {
+  background-color: #2196F3;
+  color: #fff;
+}
