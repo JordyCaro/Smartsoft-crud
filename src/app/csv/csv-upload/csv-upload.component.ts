@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Papa, ParseResult } from 'ngx-papaparse';
+import { Chart } from 'chart.js/auto';
 
 @Component({
   selector: 'app-csv-upload',
@@ -8,11 +9,19 @@ import { Papa, ParseResult } from 'ngx-papaparse';
 })
 export class CsvUploadComponent {
 
+  @ViewChild('doughnutChart') doughnutChart!: ElementRef;
+  chart: any;
   data: any[] = [];
   analyzedData: any[] = [];
   showUploadForm = true;
+  chartLabels: any;
 
   constructor(private papa: Papa) {}
+
+  // ngAfterViewInit(): void {
+  //   this.createDoughnutChart();
+  //  console.log(this.doughnutChart)
+  // }
 
   onFileChange(event: any): void {
     const file = event?.target?.files?.[0];
@@ -28,11 +37,14 @@ export class CsvUploadComponent {
       complete: (result: ParseResult<any>) => {
         this.data = result.data;
         this.analyzedData = this.analyzeData();
-        console.log('Resultados del análisis:', this.analyzedData);
+        // console.log(this.doughnutChart)
+        // console.log('Resultados del análisis:', this.analyzedData);
+        this.createDoughnutChart();
       },
       header: true,
     });
   }
+
 
   private analyzeData(): any[] {
     const groupedData = this.data.reduce((acc, result) => {
@@ -105,4 +117,39 @@ export class CsvUploadComponent {
     return { chartData, chartLabels };
   }
 
+  private getRandomColor(): string {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
+  
+
+  private createDoughnutChart(): void {
+    if (this.doughnutChart) {
+      const preparedChartData = this.prepareChartData();
+  
+      const backgroundColors = preparedChartData.chartLabels.map(() => this.getRandomColor());
+  
+      const ctx = this.doughnutChart.nativeElement.getContext('2d');
+      this.chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+          labels: preparedChartData.chartLabels,
+          datasets: [
+            {
+              data: preparedChartData.chartData,
+              backgroundColor: backgroundColors,
+              hoverBackgroundColor: backgroundColors
+            }
+          ]
+        }
+      });
+    } else {
+      console.error('doughnutChart or its nativeElement is undefined.');
+    }
+  }
+  
 }

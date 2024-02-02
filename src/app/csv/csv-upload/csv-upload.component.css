@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  /* height: 100vh; */
   overflow-y: hidden;
 }
 
@@ -119,4 +119,10 @@
   .table-wrapper {
     max-height: calc(20vh - 40px);
   }
+}
+
+.doughnut-chart-container {
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
 }

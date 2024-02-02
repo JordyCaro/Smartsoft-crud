@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit{
     this.loader = true;
     this.apiService.getUsers(query).subscribe(
       (data) => {
-        console.log(data);
+        // console.log(data);
         this.users = data.data;
         this.totalUsers = data.total;
         this.paginator.length = this.totalUsers;

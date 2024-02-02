@@ -36,11 +36,13 @@
         <p>Estado con mayor acumulado a la fecha: <strong>{{ getStateWithHighestTotal()?.state || 'N/A' }}</strong></p>
         <p>Estado con menor acumulado a la fecha: <strong>{{ getStateWithLeastCumulative() || 'N/A' }}</strong></p>
         <p>El estado más afectado: <strong>{{ getStateWithHighestTotal()?.state || 'N/A' }}</strong> - Con: <strong>{{ getStateWithHighestTotal()?.total || 'N/A' }} </strong>personas fallecidas</p>
-
       </div>
 
-        </div>
-      </div>
     </div>
+  </div>
+      <div class="doughnut-chart-container">
+        <canvas #doughnutChart></canvas>
+      </div>
+</div>
 
 <app-footer></app-footer>
