@@ -1,5 +1,3 @@
-<!-- app/csv/csv-upload/csv-upload.component.html -->
-
 <app-header></app-header>
 
 <div class="container">
@@ -25,8 +23,8 @@
             </thead>
             <tbody>
               <tr *ngFor="let result of analyzedData">
-                <td>{{ result.estado }}</td>
-                <td>{{ result.ultimoResultado['4/27/21'] || 'N/A' }}</td>
+                <td>{{ result.state }}</td>
+                <td>{{ result.lastResult['4/27/21'] || 'N/A' }}</td>
               </tr>
             </tbody>
           </table>
@@ -35,9 +33,9 @@
 
       <div class="result-statements">
         <h3>Estadísticas Generales:</h3>
-        <p>Estado con mayor acumulado a la fecha: <strong>{{ getStateWithHighestTotal() || 'N/A' }}</strong></p>
+        <p>Estado con mayor acumulado a la fecha: <strong>{{ getStateWithHighestTotal()?.state || 'N/A' }}</strong></p>
         <p>Estado con menor acumulado a la fecha: <strong>{{ getStateWithLeastCumulative() || 'N/A' }}</strong></p>
-        <p>El estado más afectado: <strong>{{ getStateWithHighestTotal()?.estado || 'N/A' }}</strong> - Con: <strong>{{ getStateWithHighestTotal()?.acumulado || 'N/A' }} </strong>personas fallecidas</p>
+        <p>El estado más afectado: <strong>{{ getStateWithHighestTotal()?.state || 'N/A' }}</strong> - Con: <strong>{{ getStateWithHighestTotal()?.total || 'N/A' }} </strong>personas fallecidas</p>
 
       </div>
 
