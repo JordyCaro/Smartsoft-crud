@@ -2,26 +2,35 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.4.
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+CrudSmartsoft is a sample application that uses Angular to simulate CRUD (Create, Read, Update, Delete) operations on users. It utilizes the [ReqRes.in](https://reqres.in/) public API service to simulate these operations. It's important to note that, although the application shows positive responses from the server while simulating creating, editing, and deleting users, in reality, these operations are not being performed.
 
-## Code scaffolding
+## Run the Project
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+To run the application, follow these steps:
 
-## Build
+1. Clone this repository to your local machine.
+2. Open a terminal and navigate to the project directory.
+3. Run the command `npm install` to install dependencies.
+4. Then, run `ng serve` to start the development server.
+5. Open your browser and navigate to `http://localhost:4200/`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The application will automatically reload if you make changes to the source files.
 
-## Running unit tests
+## Project Structure
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The application is structured with components, services, and styles. You can explore the source code in the `src/` directory for more details on how it is built.
 
-## Running end-to-end tests
+## API Service - ReqRes.in
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This application uses the [ReqRes.in](https://reqres.in/) public API service to simulate CRUD operations on users. Although the application displays positive responses, it's crucial to understand that no real changes are made to the database, as it's a testing service.
 
-## Further help
+## Useful Commands
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- `ng generate component component-name`: Generates a new component.
+- `ng build`: Compiles the project and stores build files in the `dist/` directory.
+- `ng test`: Executes unit tests using [Karma](https://karma-runner.github.io).
+- `ng e2e`: Runs end-to-end tests using a platform of your choice.
+
+For more help on Angular CLI, use `ng help` or visit the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
