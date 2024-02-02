@@ -1,0 +1,95 @@
+.w-11 {
+  width: 60%;
+  /* position: absolute !important; */
+}
+
+.left {
+  margin-left: 2%;
+}
+
+a:hover {
+  color: red !important;
+}
+
+a.active {
+  color: red !important;
+}
+.fixed {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.menu-icon {
+  display: flex;
+  flex-direction: column;
+  width: 40px;
+  gap: 7px;
+  cursor: pointer;
+  background: #00000052;
+  padding: 6px;
+  box-sizing: content-box;
+  border-radius: 5px;
+  position: fixed;
+  margin-left: calc(100vw - 80px);
+}
+.menu-icon-close {
+  position: relative;
+  box-sizing: border-box;
+  background: none;
+  width: 30px;
+  cursor: pointer;
+}
+
+.dot-row {
+  height: 7px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+.close-menu {
+  justify-content: flex-start;
+  gap: 1rem;
+  align-items: center;
+  flex-direction: row;
+  color: #fff;
+  cursor: pointer;
+}
+.dot-close {
+  height: 5px;
+  width: 100%;
+  background: #fff;
+  border-radius: 5px;
+}
+
+.dot-close-one {
+  transform: rotate(45deg);
+  position: absolute;
+}
+.dot-close-two {
+  transform: rotate(-45deg);
+  position: absolute;
+}
+
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-gap: 10px;
+}
+
+.center {
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 183px;
+  justify-content: normal;
+}
+
+.logo-tt {
+  transform: scale(1.2);
+  margin-top: 11px;
+}

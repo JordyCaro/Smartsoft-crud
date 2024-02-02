@@ -18,6 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { HomeComponent } from './components/home/home.component';
+import { NgChartsModule } from 'ng2-charts';
 // import { CsvUploadComponent } from './csv/csv-upload/csv-upload.component';
 
 
@@ -35,10 +36,11 @@ import { HomeComponent } from './components/home/home.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    CsvModule,
+    // CsvModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    NgChartsModule,
 
     // Módulos de Angular Material
     MatInputModule,

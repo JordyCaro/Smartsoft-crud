@@ -34,8 +34,9 @@ export class LoginComponent implements OnInit {
       (success: boolean) => {
         this.loader = false;
         if (success) {
-          console.log('Exito');
-          this.router.navigateByUrl('/home');
+          // this.router.navigateByUrl('/home');
+          this.router.navigateByUrl('/csv-upload');
+          console.log('Autenticado');
         } else {
           console.error('Credenciales inválidas');
         }
@@ -46,5 +47,5 @@ export class LoginComponent implements OnInit {
       }
     );
   }
-  
+
 }
